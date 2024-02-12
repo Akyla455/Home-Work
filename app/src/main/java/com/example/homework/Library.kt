@@ -1,6 +1,6 @@
 package com.example.homework
 
-open class Book(val title: String,
+abstract class Book(val title: String,
                 val isbn: String,
                 val description: String)
 
@@ -23,20 +23,20 @@ class ChildrenBook(title: String,
                    Book(title, isbn, description)
 
 class Library(){
-    val books = mutableListOf<Book>()
+    val books = hashMapOf<String, Book>()
 
     fun add(book: Book){
-        books.add(book)
+        books[book.title] = book
         println("Книга добалена")
     }
 
     fun remove(book: Book){
-        books.remove(book)
+        books.remove(book.title)
         println("Книга удалена")
     }
 
     fun search(title: String): Book?{
-        return books.find { it.title == title }
+        return books[title]
 
 
 
