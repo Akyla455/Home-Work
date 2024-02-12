@@ -9,7 +9,7 @@ fun randomGame(){
     val randomNumbers = Random.nextInt(min, max +1)
    while (true){
        println("Угадайте число от 1 до 10")
-       val userInput = readln().toInt()
+       val userInput = readln().toIntOrNull()
        if (userInput != null && userInput != randomNumbers){
            if(userInput > randomNumbers){
                println("Неверно. Загаданное число меньше ")
