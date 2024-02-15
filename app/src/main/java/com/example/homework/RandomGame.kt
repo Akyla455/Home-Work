@@ -1,8 +1,7 @@
 package com.example.homework
 
-import kotlin.random.Random
 
-var playAgain = true
+
 
 fun generateRandomNumber(min: Int, max: Int): Int {
     return (min..max).random()
@@ -32,11 +31,9 @@ fun askToPlayAgain() {
     val userInput = readLine()?.trim()?.toLowerCase()
 
     when (userInput) {
-        "да" -> playAgain = true
-        "нет" -> {
-            playAgain = false
-            println("Спасибо за игру.")
-        }
+        "да" -> randomGame()
+        "нет" -> println("Спасибо за игру.")
+
         else -> {
             println("Ошибка! Недопустимый ввод.")
             askToPlayAgain()
@@ -48,7 +45,6 @@ fun randomGame() {
     val min = 1
     val max = 10
 
-    while (playAgain) {
         val randomNumber = generateRandomNumber(min, max)
         var result = false
 
@@ -60,7 +56,7 @@ fun randomGame() {
         }
         askToPlayAgain()
     }
-}
+
 
 fun main() {
     randomGame()
